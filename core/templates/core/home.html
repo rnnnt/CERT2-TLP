@@ -1,0 +1,20 @@
+{% extends 'core/layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<header class="content header">
+    <h1 class="titulo home">Portal de Iniciativas Estudiantiles</h1>
+    <p>Universidad Santa María - Sede Viña del Mar</p>      
+</header>
+
+{% if request.user.is_authenticated %}
+    <hr>
+    <h4 class="footer-text">
+    {{ user.username | upper}}, bienvenido
+    </h4>
+{% endif %}
+
+
+{% endblock %}

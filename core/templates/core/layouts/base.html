@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIE USM SVM</title>
+    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- FUENTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="background-container">
+        <img src="{% static 'core/img/svm.jpg' %}" alt="Background Image" class="background-img">
+    </div>
+
+    <div class="head">
+        
+        <div class="logo">
+            <img src="{% static 'core/img/Barra Colores.png' %}" alt="Barra" class="logo-image">
+            <a href="#">PIE USM SVM</a>
+        </div>
+        
+        <nav class="navbar">
+                <a href="{% url 'home' %}">Inicio</a>
+                <a href="{% url 'projects' %}">Projects</a>
+                <a href="{% url 'create_project' %}">Create Project</a>
+        
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'exit' %}">salir</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Ingresar</a>
+                {% endif %}
+        </nav>
+
+    </div>
+    
+
+    {% block content %}{% endblock %}
+</body>
+</html>
