@@ -48,3 +48,6 @@ def eliminar(request, name):
     project = get_object_or_404(Project, name=name)
     project.delete()
     return redirect('projects') 
+
+def calendario(request):
+    return render(request, 'core/calendario.html')
